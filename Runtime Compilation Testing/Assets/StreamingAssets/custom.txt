@@ -1,0 +1,13 @@
+
+
+public class Hobbit : ICharacter 
+{
+    public int Height { get { return UnityEngine.Random.Range(100, 140); } }
+    public string Language { get { return "Common"; } }
+}
+
+public class Elf : ICharacter 
+{
+    public int Height { get { return UnityEngine.Random.Range(170, 210); } }
+    public string Language { get { return "Elvish"; } }
+}
