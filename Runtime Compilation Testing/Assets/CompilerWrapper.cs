@@ -68,9 +68,11 @@ public class CompilerWrapper
         var module = (ModuleContainer)evtype
             .GetField("module", BindingFlags.Instance | BindingFlags.NonPublic).GetValue(_evaluator);
 
+
+        // ~~~~~~~~~~~~ NOTE: had to change to Public from NonPublic ~~~~~~~~~~~~~~~~~~
         // expose MetadataImporter.ImportTypes(Type[], RootNamespace, bool)
         var importTypes = importer.GetType().GetMethod(
-            "ImportTypes", BindingFlags.Instance | BindingFlags.Public, null, CallingConventions.Any,       // NOTE: had to change to Public from NonPublic
+            "ImportTypes", BindingFlags.Instance | BindingFlags.Public, null, CallingConventions.Any,       
             new Type[] { typeof(Type[]), typeof(Namespace), typeof(bool) }, null);
 
         foreach (Type[] types in allowedTypeArrays)
